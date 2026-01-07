@@ -1,2 +1,0 @@
-# intelligent-data-cleaning-tool
-

@@ -1,0 +1,7 @@
+Customer Name , Age , City , Purchase Amount
+Alice,25,Delhi,1200
+Bob,,Mumbai,800
+Alice,25,Delhi,1200
+Charlie,30,,1500
+David,not_available,Bangalore,1000
+Eve,28,Chennai,

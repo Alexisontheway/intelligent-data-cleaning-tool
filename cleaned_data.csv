@@ -1,0 +1,6 @@
+customer_name,age,city,purchase_amount
+Alice,25,Delhi,1200.0
+Bob,unknown,Mumbai,800.0
+Charlie,30,unknown,1500.0
+David,not_available,Bangalore,1000.0
+Eve,28,Chennai,

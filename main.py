@@ -1,3 +1,10 @@
+from data_cleaner.reporter import (
+    save_cleaned_data,
+    log_summary,
+    save_data_quality_report,
+)
+
+
 import logging
 import argparse
 from pathlib import Path
@@ -53,11 +60,25 @@ def main():
     args = parse_arguments()
 
     df = load_csv(args.input)
+    original_rows = len(df)
     df = normalize_columns(df)
     df = handle_missing_values(df)
     df = remove_duplicates(df)
+    final_rows = len(df)
+
+    missing_by_column = df.isna().sum()
+    missing_by_column = missing_by_column[missing_by_column > 0].to_dict()
 
     log_summary(df)
+
+    report_path = Path("data_quality_report.txt")
+
+    save_data_quality_report(
+        report_path,
+        original_rows,
+        final_rows,
+        missing_by_column,
+    )
 
     if args.dry_run:
         logging.info("Dry-run mode enabled. No file was saved.")
@@ -65,11 +86,6 @@ def main():
     else:
         save_cleaned_data(df, args.output)
         print(f"Cleaning complete. Cleaned data saved to: {args.output}")
-
-
-        
-        
-    
 
 
 if __name__ == "__main__":

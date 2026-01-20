@@ -1,0 +1,9 @@
+DATA QUALITY REPORT
+===================
+
+Original rows: 6
+Final rows: 5
+Duplicates removed: 1
+
+Missing values by column:
+- purchase_amount: 1
